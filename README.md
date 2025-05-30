@@ -8,10 +8,14 @@
 
 
 2. Notice that there are two versions of `kubectl get` invocation during this tutorial section. The first does not have any option, while the latter has `-n` option with value set to `kube-system`. What is the purpose of the `-n` option and why did the output not list the pods/services that you explicitly created?
+The `-n` option specifies the namespace of the Kubernetes services and pods to be retrieved from. When running `kubectl get pods` there was no output because they are in the default namespace meanwhile running `kubectl get pods -n kube-system` gets all resources that are under the kube-system namespace. 
+
 
 #### Reflection 2:
 
 1. What is the difference between Rolling Update and Recreate deployment strategy?
+The Rolling Update strategy updates one pod at a time while letting the old pods run. As the update creates new pods, it lets the old ones run. When the new pods are ready, the old pods are deleted then a new pod is created and this process repeats until all the pods are updated.
+On the other hand, the Recreate development shuts down all pods at once, stopping the application. Then new pods are created during the update.
 
 2.  Try deploying the Spring Petclinic REST using Recreate deployment strategy and document your attempt.
 
