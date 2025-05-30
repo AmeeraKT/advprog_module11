@@ -8,11 +8,12 @@
 
 
 2. Notice that there are two versions of `kubectl get` invocation during this tutorial section. The first does not have any option, while the latter has `-n` option with value set to `kube-system`. What is the purpose of the `-n` option and why did the output not list the pods/services that you explicitly created?
+```
 The `-n` option specifies the namespace of the Kubernetes services and pods to be
 retrieved from. When running `kubectl get pods` there was no output because they
 are in the default namespace meanwhile running `kubectl get pods -n kube-system`
 gets all resources that are under the kube-system namespace. 
-
+```
 
 #### Reflection 2:
 
